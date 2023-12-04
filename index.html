@@ -29,8 +29,9 @@
   </audio>
   
   <script>
-  let tiempoTerminado;
-  let intervaloDeTiempo;
+    let fecha = new Date();
+    let tiempoTerminado;
+    let intervaloDeTiempo;
 
     function comenzarCuentaRegresiva(){
       tiempoTerminado = setTimeout(tiempoCumplido, 30000);
@@ -62,10 +63,9 @@
       let res4 = document.getElementById("respuesta4").value;
       let res5 = document.getElementById("respuesta5").value;
 
-      let respuetas = [res1, res2, res3, res4, res5]
+      let mensaje = "Tus respuestas fueron: \n" + [res1, res2, res3, res4, res5];
 
-
-      alert("Tus respuestas fueron: " + respuetas)
+      alert(fecha.toLocaleDateString("es-Es") + "\n" + mensaje)
     }
   </script>
 
