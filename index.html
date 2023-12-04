@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuestionario</title>
+  <link rel="stylesheet" href="misEstilos.css">
+</head>
+<body onload="comenzarCuentaRegresiva()">
+  <h1 >Responde a las preguntas lo más rápido que puedas <span id="Contador">30</span></h1>
+  <p>1. ¿Qué fruta es conocida por su alto contenido de vitamina C y es ácida en sabor?</p>
+  <input id="respuesta1">
+  <p>2. ¿Cuál es la fruta que tiene una cáscara amarilla y es famosa por ser una excelente fuente de potasio?</p>
+  <input id="respuesta2">
+  <p>3. ¿Qué fruta tiene una textura similar a la pera y un sabor dulce y jugoso, y suele ser de color verde o rojo?</p>
+  <input id="respuesta3">
+  <p>4. ¿Cuál es la fruta tropical de pulpa blanca y semillas negras que se utiliza comúnmente en batidos y postres?</p>
+  <input id="respuesta4">
+  <p>5. ¿Qué fruta de forma alargada y cáscara gruesa es conocida por ser una buena fuente de fibra y potasio?</p>
+  <input id="respuesta5">
+  <br><br>
+  <button onclick="finalizado()" id="button">¡Finalizado!</button>
+  <br><br>
+  <button onclick="volverAIntentar()" id="button">Volver a intentar</button>
+
+  <audio id="audioFinal">
+    <source src="gameover.mp3" type="audio/mpeg">
+    Sonido no habilitado
+  </audio>
+  
+  <script>
+  let tiempoTerminado;
+  let intervaloDeTiempo;
+
+    function comenzarCuentaRegresiva(){
+      tiempoTerminado = setTimeout(tiempoCumplido, 30000);
+      intervaloDeTiempo = setInterval(tictac, 1000);
+
+      document.getElementById("Contador").textContent = 30;
+    }
+
+    function tictac(){
+      let tiempo = document.getElementById("Contador").textContent;
+      document.getElementById("Contador").textContent = tiempo - 1;
+    }
+
+    function tiempoCumplido(){
+      clearInterval(intervaloDeTiempo);
+      document.getElementById("Contador").textContent = 30;
+      document.getElementById("audioFinal").play();
+      alert("GAME OVER: Intenta nuevamente")
+    }
+
+    function volverAIntentar(){
+      location.reload();
+    }
+
+    function finalizado(){
+      let res1 = document.getElementById("respuesta1").value;
+      let res2 = document.getElementById("respuesta2").value;
+      let res3 = document.getElementById("respuesta3").value;
+      let res4 = document.getElementById("respuesta4").value;
+      let res5 = document.getElementById("respuesta5").value;
+
+      let respuetas = [res1, res2, res3, res4, res5]
+
+
+      alert("Tus respuestas fueron: " + respuetas)
+    }
+  </script>
+
+
+</body>
+</html>

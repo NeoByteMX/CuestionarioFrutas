@@ -1,0 +1,14 @@
+#Contador{
+  border: 2px;
+  border-color: red;
+  border-style: solid;
+  border-radius: 10px;
+  color: red;
+}
+
+#button{
+  border-radius: 10px;
+  background-color: lightblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100px;
+}
